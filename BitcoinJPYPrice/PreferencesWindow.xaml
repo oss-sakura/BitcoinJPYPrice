@@ -37,6 +37,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Label Grid.Column="0" Grid.Row="0" Content="間隔(秒)" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
             <ComboBox x:Name="cmbIntervalSec" Grid.Column="1" Grid.Row="0" Margin="5,2,5,2">
@@ -60,6 +61,20 @@
                     <Label VerticalAlignment="Center" Content="-10000" Foreground="LimeGreen"></Label>
                 </StackPanel>
             </StackPanel>
+
+            <Label Grid.Column="0" Grid.Row="2" Content="リトライ回数" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
+            <ComboBox x:Name="cmbMaxRetryCount" Grid.Column="1" Grid.Row="2" Margin="5,2,5,2">
+                <ComboBoxItem Tag="1" Content="1" />
+                <ComboBoxItem Tag="2" Content="2" />
+                <ComboBoxItem Tag="3" Content="3" />
+                <ComboBoxItem Tag="4" Content="4" />
+                <ComboBoxItem Tag="5" Content="5" />
+                <ComboBoxItem Tag="6" Content="6" />
+                <ComboBoxItem Tag="7" Content="7" />
+                <ComboBoxItem Tag="8" Content="8" />
+                <ComboBoxItem Tag="9" Content="9" />
+                <ComboBoxItem Tag="10" Content="10" />
+            </ComboBox>
 
         </Grid>
         <StackPanel Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right">

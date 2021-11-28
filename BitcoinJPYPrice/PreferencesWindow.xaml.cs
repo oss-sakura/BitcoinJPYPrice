@@ -59,9 +59,7 @@ namespace BitcoinJPYPrice
                 if (sec.Equals(item.Content.ToString())) { jj = ii - 1; }
             }
             if (jj > -1) { cmbIntervalSec.SelectedIndex = jj; }
-
-
-
+            // 色の選択
             if (Properties.Settings.Default.ColorType == 1)
             {
                 radioUpGreenDownRed.IsChecked = true;
@@ -72,6 +70,27 @@ namespace BitcoinJPYPrice
                 radioUpGreenDownRed.IsChecked = false;
                 radioUpRedDownGreen.IsChecked = true;
             }
+            // 色の選択
+            if (Properties.Settings.Default.ColorType == 1)
+            {
+                radioUpGreenDownRed.IsChecked = true;
+                radioUpRedDownGreen.IsChecked = false;
+            }
+            else
+            {
+                radioUpGreenDownRed.IsChecked = false;
+                radioUpRedDownGreen.IsChecked = true;
+            }
+            // リトライ回数の選択
+            string cnt = Properties.Settings.Default.MaxRetryCount.ToString();
+            int jjj = -1;
+            int iii = 0;
+            foreach (ComboBoxItem item in cmbMaxRetryCount.Items)
+            {
+                iii++;
+                if (cnt.Equals(item.Content.ToString())) { jjj = iii - 1; }
+            }
+            if (jjj > -1) { cmbMaxRetryCount.SelectedIndex = jjj; }
             // キャンセルボタンにフォーカスを移動
             btnCancel.Focus();
         }
@@ -103,6 +122,11 @@ namespace BitcoinJPYPrice
             ComboBoxItem selectInterval = (ComboBoxItem)cmbIntervalSec.SelectedItem;
             if (!int.TryParse(selectInterval.Content.ToString(), out int sec)) { sec = 3; }
             Properties.Settings.Default.IntervalSec = sec;
+
+            // 
+            ComboBoxItem selectMaxRetryCount = (ComboBoxItem)cmbMaxRetryCount.SelectedItem;
+            if (!int.TryParse(selectMaxRetryCount.Content.ToString(), out int cnt)) { cnt = 10; }
+            Properties.Settings.Default.MaxRetryCount = cnt;
 
             // Save
             Properties.Settings.Default.Save();
