@@ -180,10 +180,10 @@ namespace BitcoinJPYPrice.Common
             _failCount++;
         }
 
-        private void Stoped()
+        private void Stopped()
         {
             LabelAsk.Foreground = LabelBid.Foreground = LabelLast.Foreground = Brushes.Red;
-            LabelAsk.Content = LabelBid.Content = LabelLast.Content = "Stoped";
+            LabelAsk.Content = LabelBid.Content = LabelLast.Content = "Stopped";
             LabelSpred.Content = "";
         }
 
@@ -203,7 +203,7 @@ namespace BitcoinJPYPrice.Common
                         Failed();
                         if (_failCount > Properties.Settings.Default.MaxRetryCount)
                         {
-                            Stoped();
+                            Stopped();
                             break;
                         }
                     }
