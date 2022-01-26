@@ -37,7 +37,7 @@ Zaif, Coincheck, bitFlyer, bitbank, GMOコイン が公開しているTicker Web
 
 ライセンス
 -----------------
-CreateDateFolder is licensed under the MIT license.  
+BitcoinJPYPrice is licensed under the MIT license.  
 &copy; 2021- IT SUPPORT SAKURA Inc. (oss-sakura)
 
 [shield-license]: https://img.shields.io/badge/license-MIT-blue.svg
