@@ -43,10 +43,17 @@ namespace BitcoinJPYPrice.ExchangeAPI
                 {
                     DeserializedResponse = js.ReadObject(ms) as GMOCoinTicker;
                 }
-                _ = float.TryParse(DeserializedResponse.data[0].ask, out _ask);
-                _ = float.TryParse(DeserializedResponse.data[0].bid, out _bid);
-                _ = float.TryParse(DeserializedResponse.data[0].last, out _last);
-                _statusCode = statusCode;
+                try
+                {
+                    _ = float.TryParse(DeserializedResponse.data[0].ask, out _ask);
+                    _ = float.TryParse(DeserializedResponse.data[0].bid, out _bid);
+                    _ = float.TryParse(DeserializedResponse.data[0].last, out _last);
+                    _statusCode = statusCode;
+                }
+                catch
+                {
+                    _statusCode = -1;
+                }
             }
         }
 

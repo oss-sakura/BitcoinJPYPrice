@@ -43,10 +43,17 @@ namespace BitcoinJPYPrice.ExchangeAPI
                 {
                     DeserializedResponse = js.ReadObject(ms) as BitFlyerTicker;
                 }
-                _ask = DeserializedResponse.best_ask;
-                _bid = DeserializedResponse.best_bid;
-                _last = DeserializedResponse.ltp;
-                _statusCode = statusCode;
+                try
+                {
+                    _ask = DeserializedResponse.best_ask;
+                    _bid = DeserializedResponse.best_bid;
+                    _last = DeserializedResponse.ltp;
+                    _statusCode = statusCode;
+                }
+                catch
+                {
+                    _statusCode = -1;
+                }
             }
         }
 
